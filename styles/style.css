@@ -13,9 +13,11 @@ body {
 
 .wrapper {
   height: 350px;
-  margin: 100px auto 0;
-  position: relative;
   width: 700px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .wrapper > input {
@@ -37,14 +39,19 @@ body {
   min-height: 100%;
   background-size: 100% 100%;
   background-repeat: no-repeat;
+  opacity: 0;
+  transition: 1.5s;
 }
 
 .slides > .description {
-  color: white;
+  color: black;
   font-size: 1.5rem;
   margin-top: 15px;
-  padding-left: 15px;
-  text-decoration: underline;
+  opacity: 0;
+  transition: 1.5s;
+  position: absolute;
+  top: 345px;
+  z-index: -1;
 }
 
 .slides.slide1 {
@@ -75,7 +82,7 @@ body {
 .wrapper .inputs_wrapper {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 .inputs_wrapper > label {
@@ -83,7 +90,6 @@ body {
   display: inline-block;
   width: 50px;
   height: 50px;
-  margin: 25px 12px 0 16px;
   position: relative;
 }
 
@@ -93,6 +99,7 @@ body {
 
 .inputs_wrapper > label:hover::after {
   box-shadow: 0 0 0 2px white, 0 0 0 4px;
+  transition: 1s;
 }
 
 .inputs_wrapper > label::after {
@@ -102,6 +109,8 @@ body {
   height: 15px;
   width: 15px;
   position: absolute;
+  top: 15px;
+  left: 15px;
 }
 
 .inputs_wrapper > label::before {
@@ -111,8 +120,8 @@ body {
   height: 7px;
   position: absolute;
   width: 7px;
-  top: 4.5px;
-  left: 4.5px;
+  top: 20px;
+  left: 20px;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   -o-border-radius: 50%;
@@ -133,4 +142,54 @@ body {
 #slide4:checked ~ .slider > .slide4,
 #slide5:checked ~ .slider > .slide5 {
   z-index: 1;
+  opacity: 1;
+}
+
+#slide1:checked ~ .slider > .slide1 .description,
+#slide2:checked ~ .slider > .slide2 .description,
+#slide3:checked ~ .slider > .slide3 .description,
+#slide4:checked ~ .slider > .slide4 .description,
+#slide5:checked ~ .slider > .slide5 .description {
+  opacity: 1;
+}
+
+@media (max-width: 810px) {
+  .wrapper {
+    height: 350px;
+    width: 90vw;
+  }
+}
+
+@media (max-width: 550px) {
+  .slides > .description {
+    top: 360px;
+    left: 50%;
+    width: 80%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+  }
+
+  .wrapper .inputs_wrapper {
+    justify-content: center;
+    margin-top: 7vh;
+  }
+
+  .wrapper .slides {
+    background-size: cover;
+    background-position: 30%;
+  }
+}
+
+@media (max-width: 500px) {
+  .wrapper .slides {
+    background-size: cover;
+    background-position: 50%;
+  }
+}
+
+@media (max-width: 320px) {
+  .wrapper .slides {
+    background-size: cover;
+    background-position: 53%;
+  }
 }
