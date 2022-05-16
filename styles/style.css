@@ -1,12 +1,3 @@
-* {
-  margin: 0;
-  padding: 0;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -o-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
 body {
   background-color: #696969;
 }
@@ -151,6 +142,7 @@ body {
 #slide4:checked ~ .slider > .slide4 .description,
 #slide5:checked ~ .slider > .slide5 .description {
   opacity: 1;
+  font-size: 1.8rem;
 }
 
 @media (max-width: 810px) {
@@ -164,7 +156,7 @@ body {
   .slides > .description {
     top: 360px;
     left: 50%;
-    width: 80%;
+    width: 90%;
     text-align: center;
     transform: translate(-50%, -50%);
   }
